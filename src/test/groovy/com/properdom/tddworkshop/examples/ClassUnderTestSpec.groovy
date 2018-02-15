@@ -1,21 +1,19 @@
-package com.properdom.tddworkshop
+package com.properdom.tddworkshop.examples
 
 import spock.lang.Specification
-import com.blogspot.toomuchcoding.spock.subjcollabs.Collaborator
-import com.blogspot.toomuchcoding.spock.subjcollabs.Subject
 
 class ClassUnderTestSpec extends Specification {
 
-    @Subject
     ClassUnderTest classUnderTest
 
-    @Collaborator
     DependencyClass dependencyClass = Stub()
 
     def setup() {
         dependencyClass.method(_) >> {int arg ->
             return 'The value is ' + String.valueOf(arg)
         }
+
+        classUnderTest = new ClassUnderTest(dependencyClass)
     }
 
     def 'expect syntax'() {

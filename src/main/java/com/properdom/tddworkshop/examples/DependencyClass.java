@@ -1,4 +1,4 @@
-package com.properdom.tddworkshop;
+package com.properdom.tddworkshop.examples;
 
 public class DependencyClass {
     public String method(int value) {
